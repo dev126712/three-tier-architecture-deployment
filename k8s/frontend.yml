@@ -49,10 +49,9 @@ kind: Ingress
 metadata:
   name: app-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
-    # This matches your 'proxy_pass' logic by ensuring the paths are handled correctly
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
