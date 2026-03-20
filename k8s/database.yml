@@ -1,8 +1,9 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Statefulset
 metadata:
   name: database
 spec:
+  serviceName: "mongodb-service"
   replicas: 1
   selector:
     matchLabels:
@@ -25,6 +26,17 @@ spec:
           value: "pass"
         - name: MONGO_INITDB_DATABASE
           value: "mydatabase"
+        volumeMounts:
+        - name: mongo-data
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: mongo-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi  
 ---
 
 apiVersion: v1
