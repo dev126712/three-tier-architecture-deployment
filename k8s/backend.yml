@@ -22,6 +22,12 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
+        env:
+        - name: DATABASE_URI
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: DATABASE_URI
 ---
 
 apiVersion: v1
@@ -57,3 +63,14 @@ spec:
       target:
         type: Utilization
         averageUtilization: 60
+
+---
+
+kind: apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  labels:
+    app: myapplication
+data:
+  DATABASE_URI: "mongodb://admin:pass@database-service:27017/?authSource=admin"
