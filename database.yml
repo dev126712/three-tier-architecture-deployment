@@ -33,7 +33,7 @@ spec:
       targetPort: 27017
   type: ClusterIP
 
----
+----
 
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
