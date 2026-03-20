@@ -28,6 +28,13 @@ spec:
             configMapKeyRef:
               name: backend-config
               key: DATABASE_URI
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
 ---
 
 apiVersion: v1
