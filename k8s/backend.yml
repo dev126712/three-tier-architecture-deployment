@@ -84,4 +84,4 @@ metadata:
   labels:
     app: myapplication
 data:
-  DATABASE_URI: "mongodb://admin:pass@database-service:27017/?authSource=admin"
+  DATABASE_URI: "mongodb://admin:pass@database-service:27017/mydatabase?authSource=admin"
