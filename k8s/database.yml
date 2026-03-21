@@ -4,7 +4,7 @@ metadata:
   name: database
   namespace: 3t-app
 spec:
-  serviceName: "mongodb-service"
+  serviceName: "database-service"
   replicas: 1
   selector:
     matchLabels:
@@ -50,7 +50,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb-service
+  name: database-service
   namespace: 3t-app
 spec:
   selector:
