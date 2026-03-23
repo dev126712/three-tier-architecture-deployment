@@ -18,7 +18,7 @@ podLabels: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext: 
   capabilities:
     drop:
      - ALL
@@ -70,7 +70,7 @@ readinessProbe:
 autoscaling:
   enabled: false
 
-volumes: []
+volumes: 
   - name: mongo-data
     mountPath: /data/db
 
