@@ -1,10 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "database.fullname" . }}
   labels:
     {{- include "database.labels" . | nindent 4 }}
 spec:
+  serviceName: {{ include "database.fullname" . }}-service
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -40,6 +41,13 @@ spec:
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: {{ .Values.auth.rootUsername | quote }}
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: {{ .Values.auth.rootPassword | quote }}
+            - name: MONGO_INITDB_DATABASE
+              value: {{ .Values.auth.database | quote }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
@@ -58,8 +66,8 @@ spec:
           {{- end }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+            - name: mongo-data
+              mountPath: {{ .Values.persistence.mountPath | default "/data/db" }}
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
@@ -76,3 +84,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-data
+      spec:
+        accessModes: [ {{ .Values.persistence.accessMode | quote }} ]
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size | quote }}
