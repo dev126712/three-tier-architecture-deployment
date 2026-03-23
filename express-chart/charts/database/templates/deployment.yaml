@@ -82,5 +82,5 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-    volumeClaimTemplates: {{- toYaml .Values.VolumeClaimTemplates | nindent 8 }}
+  volumeClaimTemplates: {{- toYaml .Values.VolumeClaimTemplates | nindent 8 }}
   
