@@ -4,7 +4,7 @@ metadata:
   name: frontend-service
   namespace: 3t-app
   annotations:
-    cloud.google.com/neg: {{ .Values.service.annotations | quote }}
+    cloud.google.com/neg: {{- toYaml .Values.service.annotations | quote }}
 spec:
   selector:
     app: frontend
