@@ -38,13 +38,6 @@ spec:
             cpu: 200m
             memory: 256Mi
   volumeClaimTemplates: {{-toYaml .Values.VolumeClaimTemplates | nindent 8 }}
-  - metadata:
-      name: mongo-data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 10Gi  
 ---
 
 apiVersion: v1
