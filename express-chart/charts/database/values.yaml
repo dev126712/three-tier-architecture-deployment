@@ -75,7 +75,7 @@ volumeMounts:
   - name: mongo-data
     mountPath: /data/db
 
-VolumeClaimTemplates: 
+volumeClaimTemplates: 
 - metadata:
     name: mongo-data
   spec:
