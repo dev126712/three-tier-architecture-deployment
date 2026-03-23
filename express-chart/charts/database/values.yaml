@@ -70,16 +70,12 @@ readinessProbe:
 autoscaling:
   enabled: false
 
-volumes: 
+
+volumeMounts:
   - name: mongo-data
     mountPath: /data/db
 
-volumeMounts: []
-  # - name: foo
-  #   mountPath: "/etc/foo"
-  #   readOnly: true
-
-volumeClaimTemplates: 
+VolumeClaimTemplates: 
 - metadata:
     name: mongo-data
   spec:
