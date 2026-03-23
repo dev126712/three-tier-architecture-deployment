@@ -63,6 +63,7 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- with .Values.volumeMounts }}
+          {{- with .Values.volumeMounts }}
           volumeMounts:
             - name: mongo-data
               mountPath: {{ $.Values.persistence.mountPath | default "/data/db" }}
