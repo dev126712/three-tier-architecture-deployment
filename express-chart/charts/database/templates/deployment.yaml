@@ -65,7 +65,7 @@ spec:
           {{- with .Values.volumeMounts }}
           volumeMounts:
             - name: mongo-data
-              mountPath: {{ .Values.persistence.mountPath | default "/data/db" }}
+              mountPath: {{ $.Values.persistence.mountPath | default "/data/db" }}
           {{- end }}
       {{- with .Values.volumes }}
       volumes:
