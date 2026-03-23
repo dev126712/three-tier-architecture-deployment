@@ -18,11 +18,8 @@ podLabels: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: 
-  capabilities:
-    drop:
-     - ALL
-  readOnlyRootFilesystem: true
+securityContext:
+  readOnlyRootFilesystem: true # Keep this for security
   runAsNonRoot: true
   runAsUser: 1000
 
@@ -70,10 +67,15 @@ readinessProbe:
 autoscaling:
   enabled: false
 
+volumes:
+  - name: tmp-volume
+    emptyDir: {}
 
 volumeMounts:
   - name: mongo-data
     mountPath: /data/db
+  - name: tmp-volume
+    mountPath: /tmp
 
 volumeClaimTemplates: 
 - metadata:
