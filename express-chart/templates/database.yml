@@ -37,7 +37,7 @@ spec:
           limits:
             cpu: 200m
             memory: 256Mi
-  volumeClaimTemplates:
+  volumeClaimTemplates: {{-toYaml .Values.VolumeClaimTemplates | nindent 8 }}
   - metadata:
       name: mongo-data
     spec:
