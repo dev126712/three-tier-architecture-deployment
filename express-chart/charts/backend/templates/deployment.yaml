@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: name: {{ include "backend.fullname" . }}
   namespace: 3t-app
 spec:
   replicas: {{ .Values.replicaCount }}
