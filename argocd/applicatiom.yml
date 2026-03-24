@@ -11,7 +11,10 @@ spec:
     path: express-chart
   destination:
     server: https://kubernetes.default.svc
+    namespace: 3t-app
   syncPolicy:
     automated:         
       prune: true      
-      selfHeal: true   
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
