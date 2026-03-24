@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: backend-config
+  name: {{ include "backend.fullname" . }}-config
   namespace: 3t-app
   labels:
     app: myapplication
