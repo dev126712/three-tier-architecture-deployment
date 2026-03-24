@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "database.fullname" . }}
-  namespace: {{ .Release.Namespace }}
+  namespace: 3t-app
   labels:
     {{- include "database.labels" . | nindent 4 }}
 spec:
