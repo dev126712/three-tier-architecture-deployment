@@ -2,6 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: database-service
+<<<<<<< HEAD
+=======
+  namespace: 3t-app
+>>>>>>> a2937fbe85c8f71d97a3b5e7e7a9baa39e3b22b1
   labels:
     {{- include "database.labels" . | nindent 4 }}
 spec:
