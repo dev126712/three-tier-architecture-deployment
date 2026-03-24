@@ -24,7 +24,7 @@ spec:
         - name: DATABASE_URI
           valueFrom:
             configMapKeyRef:
-              name: backend-config
+              name: {{ include "backend.fullname" . }}-config
               key: DATABASE_URI
         resources: 
           {{- toYaml .Values.resources | nindent 12 }}
