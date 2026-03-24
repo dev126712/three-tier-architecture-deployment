@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: name: {{ include "frontend.fullname" . }}
+  name: {{ include "frontend.fullname" . }}
   namespace: 3t-app
 spec:
   replicas: 1
