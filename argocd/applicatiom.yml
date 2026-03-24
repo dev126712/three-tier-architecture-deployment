@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/dev126712/three-tier-architecture-deployment.git
     targetRevision: HEAD
-    path: express-chart/charts
+    path: express-chart
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
