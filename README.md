@@ -6,7 +6,7 @@ Structure:
 ├── argocd
 │   ├── application.yml
 │   └── monitoring-app.yml
-├── express-chart
+├── 3t-chart
 │   ├── charts
 │   │   ├── backend
 │   │   │   ├── Chart.yaml
