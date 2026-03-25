@@ -15,7 +15,7 @@ image:
 
 backend:
   configData:
-    DATABASE_URI: "mongodb://admin:pass@database-service.{{ .Values.global.namespace }}.svc.cluster.local:27017/mydatabase?authSource=admin"
+    DATABASE_URI: "mongodb://admin:pass@database-service.3t-app.svc.cluster.local:27017/mydatabase?authSource=admin"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
