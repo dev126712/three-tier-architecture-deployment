@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: <your-repo-url>
+    repoURL: https://github.com/dev126712/three-tier-architecture-deployment
     targetRevision: HEAD
     path: monitoring-chart  # Points to your new folder
   destination:
