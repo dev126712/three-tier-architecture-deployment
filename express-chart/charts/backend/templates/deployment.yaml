@@ -8,11 +8,11 @@ spec:
   strategy: {{- toYaml .Values.strategy | nindent 4 }}
   selector:
     matchLabels:
-      app: backend
+      {{- include "backend.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: backend
+        {{- include "backend.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - name: backend
