@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vm-scrape-config
+  namespace: monitoring
+spec:
+  data:
+    prometheus.yml: |
+      global:
+        scrape_interval: 15s
+
+      scrape_configs:
+        # 1. Scrape the Node Exporter (Hardware metrics)
+        - job_name: 'node-exporter'
+          kubernetes_sd_configs:
+            - role: endpoints
+              namespaces:
+                names:
+                  - monitoring
+          relabel_configs:
+            - source_labels: [__meta_kubernetes_service_label_app]
+              action: keep
+              regex: node-exporter
+
+        # 2. Scrape your Express App (if you add prometheus-client later)
+        - job_name: 'express-apps'
+          kubernetes_sd_configs:
+            - role: pod
+              namespaces:
+                names:
+                  - default # Change this to your express-chart namespace

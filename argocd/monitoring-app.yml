@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-monitoring
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: <your-repo-url>
+    targetRevision: HEAD
+    path: monitoring-chart  # Points to your new folder
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring  # It will create this namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
