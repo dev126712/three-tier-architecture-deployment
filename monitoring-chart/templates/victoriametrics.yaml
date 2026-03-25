@@ -38,13 +38,13 @@ spec:
         volumeMounts:
         - name: victoria-metrics-data
           mountPath: /storage
+        - name: config-volume
+        configMap:
+          name: vm-scrape-config
       volumes:
       - name: victoria-metrics-data
         persistentVolumeClaim:
           claimName: vm-storage-pvc
-      - name: config-volume
-        configMap:
-          name: vm-scrape-config
       - name: config-volume
         configMap:
           name: vm-scrape-config
