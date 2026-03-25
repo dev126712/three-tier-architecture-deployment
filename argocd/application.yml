@@ -8,13 +8,13 @@ spec:
   source:
     repoURL: https://github.com/dev126712/three-tier-architecture-deployment.git
     targetRevision: HEAD
-    path: express-chart
+    path: 3t-chart
   destination:
     server: https://kubernetes.default.svc
     namespace: 3t-app
   syncPolicy:
-    automated:         
-      prune: true      
+    automated:
+      prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
