@@ -38,13 +38,14 @@ spec:
         volumeMounts:
         - name: victoria-metrics-data
           mountPath: /storage
+        # ...So we must mount the ConfigMap here
         - name: config-volume
-        configMap:
-          name: vm-scrape-config
+          mountPath: /config
       volumes:
       - name: victoria-metrics-data
         persistentVolumeClaim:
           claimName: vm-storage-pvc
+      # This links the ConfigMap to the "config-volume" name
       - name: config-volume
         configMap:
           name: vm-scrape-config
