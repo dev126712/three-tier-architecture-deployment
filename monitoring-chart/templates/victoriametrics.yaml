@@ -42,6 +42,9 @@ spec:
       - name: victoria-metrics-data
         persistentVolumeClaim:
           claimName: vm-storage-pvc
+      - name: config-volume
+        configMap:
+          name: vm-scrape-config
 ---
 apiVersion: v1
 kind: Service
