@@ -1,5 +1,55 @@
 # three-tier-architecture-deployment
 
+Structure:
+````
+.
+├── argocd
+│   ├── application.yml
+│   └── monitoring-app.yml
+├── express-chart
+│   ├── charts
+│   │   ├── backend
+│   │   │   ├── Chart.yaml
+│   │   │   ├── templates
+│   │   │   │   ├── configmap.yaml
+│   │   │   │   ├── deployment.yaml
+│   │   │   │   ├── _helpers.tpl
+│   │   │   │   ├── hpa.yaml
+│   │   │   │   └── service.yaml
+│   │   │   └── values.yaml
+│   │   ├── database
+│   │   │   ├── Chart.yaml
+│   │   │   ├── templates
+│   │   │   │   ├── deployment.yaml
+│   │   │   │   ├── _helpers.tpl
+│   │   │   │   ├── hpa.yaml
+│   │   │   │   └── service.yaml
+│   │   │   └── values.yaml
+│   │   └── frontend
+│   │       ├── Chart.yaml
+│   │       ├── templates
+│   │       │   ├── deployment.yaml
+│   │       │   ├── _helpers.tpl
+│   │       │   ├── hpa.yaml
+│   │       │   ├── ingress.yaml
+│   │       │   └── service.yaml
+│   │       └── values.yaml
+│   ├── Chart.yaml
+│   └── values.yaml
+├── monitoring-chart
+│   ├── Chart.yaml
+│   ├── templates
+│   │   ├── grafana.yaml
+│   │   ├── namespace.yml
+│   │   ├── node-exporter.yaml
+│   │   ├── victoriametrics.yaml
+│   │   └── vm-config.yaml
+│   └── values.yaml
+├── README.md
+├── Screenshot 2026-03-20 2.16.48 PM.png
+└── values.yaml
+````
+
 Install ArgoCD
 ````
 kubectl create namespace argocd
