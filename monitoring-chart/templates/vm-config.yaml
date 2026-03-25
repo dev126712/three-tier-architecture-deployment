@@ -28,4 +28,4 @@ spec:
             - role: pod
               namespaces:
                 names:
-                  - default # Change this to your express-chart namespace
+                  - 3t-app
