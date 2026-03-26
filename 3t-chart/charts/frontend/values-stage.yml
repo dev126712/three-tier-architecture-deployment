@@ -1,0 +1,90 @@
+global:
+  namespace: 3t-app-stage
+
+replicaCount: 2
+
+image:
+  repository: dev126712/dockerized-three-tier-app-frontend
+  pullPolicy: IfNotPresent
+  tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
+
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: 
+   capabilities:
+     drop:
+     - ALL
+   readOnlyRootFilesystem: true
+   runAsNonRoot: true
+   runAsUser: 1000
+
+service:
+  #annotations:
+   # cloud.google.com/neg: '{"ingress": true}'
+  type: NodePort
+  port: 80
+  targetPort: 8000
+  protocol: TCP
+
+#ingress:
+#  className: "nginx"
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /
+#  hosts:
+#    - host: chart-example.local
+#      paths:
+#        - path: /api
+#          pathType: Prefix
+#          backendService: backend-service
+#          backendPort: 8080
+#        - path: /
+#          pathType: Prefix
+#          backendService: frontend-service
+#          backendPort: 80
+#  tls: []
+
+ingress:
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: stage.chart-example.local
+      paths:
+        - path: /api
+          pathType: Prefix
+          # FIX: This must match the full name of your backend service
+          backendService: three-tier-app-backend-service 
+          backendPort: 8080
+        - path: /
+          pathType: Prefix
+          # FIX: This must match the full name of your frontend service
+          backendService: three-tier-app-frontend-service
+          backendPort: 80
+
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+volumes: []
+volumeMounts: []
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,3 +1,6 @@
+global:
+  namespace: 3t-app-dev
+
 replicaCount: 1
 
 image:
@@ -49,7 +52,7 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-    - host: chart-example.local
+    - host: dev.chart-example.local
       paths:
         - path: /api
           pathType: Prefix
@@ -76,8 +79,8 @@ resources:
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 3
-  targetCPUUtilizationPercentage: 80
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 50
 volumes: []
 volumeMounts: []
 nodeSelector: {}

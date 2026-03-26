@@ -1,3 +1,5 @@
+global:
+  namespace: 3t-app-dev
 
 replicaCount: 1
 

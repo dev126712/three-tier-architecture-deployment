@@ -1,0 +1,50 @@
+global:
+  namespace: 3t-app-prod
+
+replicaCount: 3
+
+
+image:
+  repository: dev126712/dockerized-three-tier-app-backend
+  pullPolicy: IfNotPresent
+  tag: "801b80920334515356715c23caaf57bdd11779f8"
+
+# Mapped from your Service manifest
+service:
+  type: ClusterIP
+  port: 8080 
+
+# Mapped from your Deployment resources
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+# Mapped from your HPA manifest
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 60
+
+# Custom section for your ConfigMap data
+configData:
+  DATABASE_URI: "mongodb://admin:pass@database-service.3t-app-prod.svc.cluster.local:27017/mydatabase?authSource=admin"
+
+# Deployment Strategy (Add this to your deployment template if not present)
+strategy:
+  rollingUpdate:
+    maxSurge: 2
+    maxUnavailable: 1
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
