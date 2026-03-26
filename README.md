@@ -59,7 +59,6 @@ Structure:
 │   ├── templates
 │   │   └── namespace.yml
 │   └── values.yaml
-├── README.md
 └── values.yaml
 ````
 
