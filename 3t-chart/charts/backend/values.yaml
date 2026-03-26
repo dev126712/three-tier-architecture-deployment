@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   repository: dev126712/dockerized-three-tier-app-backend
   pullPolicy: IfNotPresent
-  tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
+  tag: "801b80920334515356715c23caaf57bdd11779f8"
 
 # Mapped from your Service manifest
 service:
