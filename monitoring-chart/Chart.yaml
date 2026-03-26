@@ -3,3 +3,14 @@ name: monitoring-stack
 description: VictoriaMetrics and Grafana for Cluster Observability
 type: application
 version: 1.0.0
+
+dependencies:
+  - name: grafana
+    version: 0.1.0 # This must match the version in grafana/Chart.yaml
+    condition: grafana.enabled
+  - name: victoria-metrics
+    version: 0.1.0
+    condition: victoria-metrics.enabled
+  - name: node-exporter
+    version: 0.1.0
+    condition: node-exporter.enabled

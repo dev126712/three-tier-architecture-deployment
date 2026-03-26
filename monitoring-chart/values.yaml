@@ -1,0 +1,16 @@
+# monitoring-chart/values.yaml
+grafana:
+  service:
+    type: NodePort  # This overrides values in monitoring-chart/charts/grafana/values.yaml
+
+victoria-metrics:
+  server:
+    retention: 1d
+
+
+node-exporter:
+  enabled: true
+
+# Global variables shared across all templates
+global:
+  namespace: monitoring
