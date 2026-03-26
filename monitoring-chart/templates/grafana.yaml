@@ -3,18 +3,17 @@ kind: ConfigMap
 metadata:
   name: grafana-datasources
   namespace: monitoring
-spec:
-  data:
-    datasource.yaml: |-
-      apiVersion: 1
-      datasources:
-      - name: VictoriaMetrics
-        type: prometheus
-        url: http://victoria-metrics.monitoring.svc:8428
-        access: proxy
-        isDefault: true
-        updateIntervalSeconds: 10
-        editable: true
+data:
+  datasource.yaml: |-
+    apiVersion: 1
+    datasources:
+    - name: VictoriaMetrics
+      type: prometheus
+      url: http://victoria-metrics.monitoring.svc:8428
+      access: proxy
+      isDefault: true
+      updateIntervalSeconds: 10
+      editable: true
 ---
 apiVersion: apps/v1
 kind: Deployment
