@@ -75,7 +75,6 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 
 
 
-
 <div id="top">
 
 <!-- HEADER STYLE: CLASSIC -->
