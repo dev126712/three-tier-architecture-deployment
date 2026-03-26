@@ -51,17 +51,15 @@ Structure:
 │   │   └── victoria-metrics
 │   │       ├── Chart.yaml
 │   │       ├── templates
-│   │       │   └── victoriametrics.yaml
+│   │       │   ├── victoriametrics.yaml
+│   │       │   ├── vm-config.yaml
+│   │       │   └── vm-rbac.yaml
 │   │       └── values.yaml
 │   ├── Chart.yaml
 │   ├── templates
-│   │   ├── namespace.yml
-│   │   └── vm-config.yaml
+│   │   └── namespace.yml
 │   └── values.yaml
-├── README.md
-├── Screenshot 2026-03-20 2.16.48 PM.png
 └── values.yaml
-
 ````
 
 Install ArgoCD
@@ -82,5 +80,7 @@ Expose the UI via NodePort
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 ````
 
-![alt text]()
+![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/e81a79e339f6440a1a3d70c98ebd14661dd20c7b/Screenshot%202026-03-26%2011.12.53%20AM.png)
+![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/9b9735a7a04cd2ba671de387dce2e28ee7883db2/Screenshot%202026-03-26%2011.13.50%20AM.png)
+![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/4d615df448ea35c9222e8c386ff82c79521c6903/Screenshot%202026-03-26%2011.14.09%20AM.png)
 
