@@ -25,6 +25,7 @@ spec:
       labels:
         app: victoria-metrics
     spec:
+      serviceAccountName: victoria-metrics-sa
       containers:
       - name: victoria-metrics
         image: victoriametrics/victoria-metrics:v1.101.0
