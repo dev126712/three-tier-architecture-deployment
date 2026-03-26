@@ -28,3 +28,22 @@ data:
             namespaces:
               names:
                 - 3t-app
+
+
+        relabel_configs:
+          # ONLY scrape pods that have a specific label (to avoid scraping MongoDB)
+          - source_labels: [__meta_kubernetes_pod_label_app]
+            action: keep
+            regex: frontend|backend  # Adjust based on your actual pod labels
+
+          # Force VictoriaMetrics to look at /metrics
+          - target_label: __metrics_path__
+            replacement: /metrics
+
+          # IMPORTANT: If your app's metrics are on a specific port (e.g. 8080)
+          # but the pod has multiple ports, use this to target the right one:
+          - source_labels: [__address__, __meta_kubernetes_pod_container_port_number]
+            action: replace
+            regex: ([^:]+)(?::\d+)?;(\d+)
+            replacement: $1:$2
+            target_label: __address__
