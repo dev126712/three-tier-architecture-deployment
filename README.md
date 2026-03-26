@@ -3,9 +3,6 @@
 Structure:
 ````
 .
-├── argocd
-│   ├── application.yml
-│   └── monitoring-app.yml
 ├── 3t-chart
 │   ├── charts
 │   │   ├── backend
@@ -36,18 +33,35 @@ Structure:
 │   │       └── values.yaml
 │   ├── Chart.yaml
 │   └── values.yaml
+├── argocd
+│   ├── application.yml
+│   └── monitoring-app.yml
 ├── monitoring-chart
+│   ├── charts
+│   │   ├── grafana
+│   │   │   ├── Chart.yaml
+│   │   │   ├── templates
+│   │   │   │   └── grafana.yaml
+│   │   │   └── values.yaml
+│   │   ├── node-exporter
+│   │   │   ├── Chart.yaml
+│   │   │   ├── templates
+│   │   │   │   └── node-exporter.yaml
+│   │   │   └── values.yaml
+│   │   └── victoria-metrics
+│   │       ├── Chart.yaml
+│   │       ├── templates
+│   │       │   └── victoriametrics.yaml
+│   │       └── values.yaml
 │   ├── Chart.yaml
 │   ├── templates
-│   │   ├── grafana.yaml
 │   │   ├── namespace.yml
-│   │   ├── node-exporter.yaml
-│   │   ├── victoriametrics.yaml
 │   │   └── vm-config.yaml
 │   └── values.yaml
 ├── README.md
 ├── Screenshot 2026-03-20 2.16.48 PM.png
 └── values.yaml
+
 ````
 
 Install ArgoCD
