@@ -17,7 +17,7 @@ spec:
         pathType: {{ .pathType }}
         backend:
           service:
-            name: {{ .backendService | default (include "frontend.fullname" $) }}
+            name: {{ .backendService | default (printf "%s-%s" .Release.Name "backend-service") }}
             port:
               number: {{ .backendPort | default 80 }}
       {{- end }}
