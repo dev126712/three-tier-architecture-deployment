@@ -27,22 +27,22 @@ service:
   targetPort: 8000
   protocol: TCP
 
-#ingress:
-#  className: "nginx"
-#  annotations:
-#    nginx.ingress.kubernetes.io/rewrite-target: /
-#  hosts:
-#    - host: chart-example.local
-#      paths:
-#        - path: /api
-#          pathType: Prefix
-#          backendService: backend-service
-#          backendPort: 8080
-##        - path: /
-#          pathType: Prefix
-#          backendService: frontend-service
-#          backendPort: 80
-#  tls: []
+ingress:
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /api
+          pathType: Prefix
+          backendService: backend-service
+          backendPort: 8080
+        - path: /
+          pathType: Prefix
+          backendService: frontend-service
+          backendPort: 80
+  tls: []
 
 resources:
   requests:
