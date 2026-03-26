@@ -62,22 +62,6 @@ Structure:
 └── values.yaml
 ````
 
-Install ArgoCD
-````
-kubectl create namespace argocd
-
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-````
-
-ArgoCD secrets
-
-````
-kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
-````
-
-Expose the UI via NodePort
-```` 
-kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 ````
 
 ![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/e81a79e339f6440a1a3d70c98ebd14661dd20c7b/Screenshot%202026-03-26%2011.12.53%20AM.png)
