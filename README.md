@@ -60,7 +60,6 @@ Structure:
 │   │   └── namespace.yml
 │   └── values.yaml
 ├── README.md
-├── Screenshot 2026-03-20 2.16.48 PM.png
 └── values.yaml
 ````
 
