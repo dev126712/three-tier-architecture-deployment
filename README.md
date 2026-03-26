@@ -51,17 +51,17 @@ Structure:
 │   │   └── victoria-metrics
 │   │       ├── Chart.yaml
 │   │       ├── templates
-│   │       │   └── victoriametrics.yaml
+│   │       │   ├── victoriametrics.yaml
+│   │       │   ├── vm-config.yaml
+│   │       │   └── vm-rbac.yaml
 │   │       └── values.yaml
 │   ├── Chart.yaml
 │   ├── templates
-│   │   ├── namespace.yml
-│   │   └── vm-config.yaml
+│   │   └── namespace.yml
 │   └── values.yaml
 ├── README.md
 ├── Screenshot 2026-03-20 2.16.48 PM.png
 └── values.yaml
-
 ````
 
 Install ArgoCD
