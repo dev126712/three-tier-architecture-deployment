@@ -83,4 +83,6 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 ````
 
 ![alt text]()
+![alt text]()
+![alt text]()
 
