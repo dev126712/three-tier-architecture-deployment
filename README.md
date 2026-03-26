@@ -83,6 +83,6 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 ````
 
 ![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/f0e4a8d0ff50b5ad63d5f2ed639f3b936cf76be0/Screenshot%202026-03-26%2011.13.50%20AM.png)
-![alt text]()
+![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/9b9735a7a04cd2ba671de387dce2e28ee7883db2/Screenshot%202026-03-26%2011.13.50%20AM.png)
 ![alt text]()
 
