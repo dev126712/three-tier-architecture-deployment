@@ -27,6 +27,7 @@ frontend:
             pathType: Prefix
             backendService: three-tier-app-frontend-service
             backendPort: 80
+            
   resources:
     requests:
       cpu: 100m
