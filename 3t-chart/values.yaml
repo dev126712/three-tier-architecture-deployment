@@ -2,16 +2,16 @@ global:
   namespace: 3t-app
 
 frontend:
- replicaCount: 1
- image:
+  replicaCount: 1
+  image:
    repository: dev126712/dockerized-three-tier-app-frontend
    tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
    pullPolicy: IfNotPresent
- service:
+  service:
    type: NodePort
    port: 80
    targetPort: 8000
- ingress:
+  ingress:
    className: "nginx"
    annotations:
      nginx.ingress.kubernetes.io/rewrite-target: /
@@ -28,27 +28,27 @@ frontend:
            backendPort: 80
 
 backend:
- replicaCount: 1
- image:
+  replicaCount: 1
+  image:
    repository: dev126712/dockerized-three-tier-app-backend
    tag: "801b80920334515356715c23caaf57bdd11779f8"
    pullPolicy: IfNotPresent
- service:
+  service:
    type: ClusterIP
    port: 8080 
- configData:
+  configData:
    DATABASE_URI: "mongodb://admin:pass@database-service.3t-app-dev.svc.cluster.local:27017/mydatabase?authSource=admin"
 
 database: 
- replicaCount: 1
- image:
+  replicaCount: 1
+  image:
    repository: dev126712/dockerized-three-tier-app-database
    tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
    pullPolicy: IfNotPresent
- auth:
+  auth:
    rootUsername: "admin"
    rootPassword: "pass"
    database: "mydatabase"
- service:
+  service:
    type: ClusterIP
    port: 27017
