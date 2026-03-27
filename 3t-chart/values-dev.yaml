@@ -1,4 +1,5 @@
-namespace: 3t-app-dev
+global:
+  namespace: 3t-app-dev
 
 frontend:
   global:
