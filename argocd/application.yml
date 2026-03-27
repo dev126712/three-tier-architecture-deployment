@@ -11,9 +11,9 @@ spec:
     path: 3t-chart
     helm:
       valueFiles:
-        - charts/backend
-        - charts/frontend
-        - charts/database
+        - charts/backend/values-dev.yml
+        - charts/frontend/values-dev.yml
+        - charts/database/values-dev.yml
   destination:
     server: https://kubernetes.default.svc
     namespace: 3t-app
