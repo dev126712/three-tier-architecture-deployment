@@ -1,0 +1,12 @@
+# Default values for the umbrella chart
+global:
+  namespace: default
+
+frontend:
+  enabled: true
+
+backend:
+  enabled: true
+
+database:
+  enabled: true
