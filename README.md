@@ -13,9 +13,7 @@ Structure:
 │   │   │   │   ├── _helpers.tpl
 │   │   │   │   ├── hpa.yaml
 │   │   │   │   └── service.yaml
-│   │   │   ├── values-dev.yaml
-│   │   │   ├── values-prod.yml
-│   │   │   └── values-stage.yml
+│   │   │   └── values.yaml
 │   │   ├── database
 │   │   │   ├── Chart.yaml
 │   │   │   ├── templates
@@ -23,9 +21,7 @@ Structure:
 │   │   │   │   ├── _helpers.tpl
 │   │   │   │   ├── hpa.yaml
 │   │   │   │   └── service.yaml
-│   │   │   ├── values-dev.yaml
-│   │   │   ├── values-prod.yml
-│   │   │   └── values-stage.yml
+│   │   │   └── values.yaml
 │   │   └── frontend
 │   │       ├── Chart.yaml
 │   │       ├── templates
@@ -34,9 +30,7 @@ Structure:
 │   │       │   ├── hpa.yaml
 │   │       │   ├── ingress.yaml
 │   │       │   └── service.yaml
-│   │       ├── values-dev.yaml
-│   │       ├── values-prod.yml
-│   │       └── values-stage.yml
+│   │       └── values.yaml
 │   ├── Chart.yaml
 │   └── values.yaml
 ├── argocd
@@ -68,6 +62,9 @@ Structure:
 │   └── values.yaml
 ├── README.md
 └── values.yaml
+
+19 directories, 44 files
+dev@penguin:~/3t-deployment$ 
 ````
 
 ![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/e81a79e339f6440a1a3d70c98ebd14661dd20c7b/Screenshot%202026-03-26%2011.12.53%20AM.png)
