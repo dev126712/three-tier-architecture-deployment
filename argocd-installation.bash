@@ -16,6 +16,11 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 
 echo 'password': `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
 
+if [ $? -ne 0  ]; then
+ sleep 10
+ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+fi
+
 echo 'http port:' ` kubectl get svc -n argocd -o jsonpath="{.items[6].spec.ports[0].nodePort}"`
 
 echo 'https port:' ` kubectl get svc -n argocd -o jsonpath="{.items[6].spec.ports[1].nodePort}"`
