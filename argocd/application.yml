@@ -9,9 +9,11 @@ spec:
     repoURL: https://github.com/dev126712/three-tier-architecture-deployment.git
     targetRevision: HEAD
     path: 3t-chart/charts
-    #helm:
-    #  valueFiles:
-    #    - values-dev.yaml
+    helm:
+      valueFiles:
+        - frontend/values-dev.yaml
+        - database/values-dev.yaml
+        - backend/values-dev.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: 3t-app
