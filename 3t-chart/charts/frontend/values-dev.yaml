@@ -23,11 +23,11 @@ securityContext:
    runAsUser: 1000
 
 service:
+  annotations: {}  # This "empty map" tells Helm the key exists but has no data
   type: NodePort
   port: 80
   targetPort: 8000
   protocol: TCP
-  annotations: {}
 
 #ingress:
 #  className: "nginx"
