@@ -36,8 +36,8 @@ backend:
   service:
     type: ClusterIP
     port: 8080 
-  configData:
-    DATABASE_URI: "mongodb://admin:pass@database-service.3t-app-dev.svc.cluster.local:27017/mydatabase?authSource=admin"
+#  configData:
+#    DATABASE_URI: "mongodb://admin:pass@database-service.3t-app-dev.svc.cluster.local:27017/mydatabase?authSource=admin"
 
 database:
   replicaCount: 1
