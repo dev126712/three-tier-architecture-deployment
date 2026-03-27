@@ -30,6 +30,7 @@ service:
   port: 80
   targetPort: 8000
   protocol: TCP
+  annotations: {}
 
 #ingress:
 #  className: "nginx"
