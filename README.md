@@ -32,9 +32,13 @@ Structure:
 │   │       │   └── service.yaml
 │   │       └── values.yaml
 │   ├── Chart.yaml
-│   └── values.yaml
+│   ├── values-dev.yaml
+│   ├── values-prod.yaml
+│   └── values-stage.yaml
 ├── argocd
-│   ├── application.yml
+│   ├── application-dev.yml
+│   ├── application-prod.yml
+│   ├── application-stage.yml
 │   └── monitoring-app.yml
 ├── argocd-installation.bash
 ├── monitoring-chart
@@ -62,9 +66,6 @@ Structure:
 │   └── values.yaml
 ├── README.md
 └── values.yaml
-
-19 directories, 44 files
-dev@penguin:~/3t-deployment$ 
 ````
 
 ![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/e81a79e339f6440a1a3d70c98ebd14661dd20c7b/Screenshot%202026-03-26%2011.12.53%20AM.png)
