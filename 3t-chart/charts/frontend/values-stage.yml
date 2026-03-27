@@ -38,10 +38,6 @@ frontend:
   autoscaling:
     enabled: false
 
-image:
-  repository: dev126712/dockerized-three-tier-app-frontend
-  pullPolicy: IfNotPresent
-  tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
 
 
 podAnnotations: {}
@@ -99,14 +95,6 @@ ingress:
           backendService: three-tier-app-frontend-service
           backendPort: 80
 
-
-resources:
-  requests:
-    cpu: 100m
-    memory: 128Mi
-  limits:
-    cpu: 200m
-    memory: 256Mi
 
 
 
