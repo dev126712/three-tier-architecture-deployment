@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: three-tier-app
-  namespace: argocd
+  name: three-tier-app-prod
+  namespace: argocd-prod
 spec:
   project: default
   source:
@@ -11,10 +11,10 @@ spec:
     path: 3t-chart
     helm:
       valueFiles:
-        - values.yaml
+        - values-prod.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: 3t-app
+    namespace: 3t-app-prod
   syncPolicy:
     automated:
       prune: true

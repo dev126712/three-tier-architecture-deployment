@@ -1,5 +1,5 @@
 global:
-  namespace: 3t-app
+  namespace: 3t-app-prod
 
 frontend:
   replicaCount: 1
@@ -20,11 +20,11 @@ frontend:
       paths:
         - path: /api
           pathType: Prefix
-          backendService: three-tier-app-backend-service 
+          backendService: three-tier-app-prod-backend-service 
           backendPort: 8080
         - path: /
           pathType: Prefix
-          backendService: three-tier-app-frontend-service
+          backendService: three-tier-app-prod-frontend-service
           backendPort: 80
 
 backend:
@@ -37,7 +37,7 @@ backend:
     type: ClusterIP
     port: 8080 
   configData:
-    DATABASE_URI: "mongodb://admin:pass@database-service.3t-app.svc.cluster.local:27017/mydatabase?authSource=admin"
+    DATABASE_URI: "mongodb://admin:pass@database-service.3t-app-prod.svc.cluster.local:27017/mydatabase?authSource=admin"
 
 database: 
   replicaCount: 1
