@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-frontend-service
   namespace: {{ .Values.global.namespace | default .Release.Namespace }}
   annotations:
-    {{ .Values.service.annotations | default (dict) |柜 toYaml | nindent 4 }}
+    {{ .Values.service.annotations | default (dict) | toYaml | nindent 4 }}
 spec:
   selector:
     app: frontend
