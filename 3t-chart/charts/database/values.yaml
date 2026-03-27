@@ -1,100 +1,100 @@
-# global:
-#   namespace: 3t-app
+global:
+  namespace: 3t-app
 
-# replicaCount: 1
+replicaCount: 1
 
-# image:
-#   repository: dev126712/dockerized-three-tier-app-database
-#   pullPolicy: IfNotPresent
-#   tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
+image:
+  repository: dev126712/dockerized-three-tier-app-database
+  pullPolicy: IfNotPresent
+  tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
 
-# auth:
-#   rootUsername: "admin"
-#   rootPassword: "pass"
-#   database: "mydatabase"
+auth:
+  rootUsername: "admin"
+  rootPassword: "pass"
+  database: "mydatabase"
 
 
-# podAnnotations: {}
-# podLabels: {}
+podAnnotations: {}
+podLabels: {}
 
-# podSecurityContext: {}
-#   # fsGroup: 2000
+podSecurityContext: {}
+  # fsGroup: 2000
 
-# securityContext:
-#   readOnlyRootFilesystem: true # Keep this for security
-#   runAsNonRoot: true
-#   runAsUser: 1000
+securityContext:
+  readOnlyRootFilesystem: true # Keep this for security
+  runAsNonRoot: true
+  runAsUser: 1000
 
-# service:
-#   type: ClusterIP
-#   port: 27017
-#   targetPort: 27017
+service:
+  type: ClusterIP
+  port: 27017
+  targetPort: 27017
 
-# ingress:
-#   enabled: false
-#   className: ""
-#   annotations: {}
-#   hosts:
-#     - host: chart-example.local
-#       paths:
-#         - path: /
-#           pathType: ImplementationSpecific
-#   tls: []
-# httpRoute:
-#   enabled: false
-#   annotations: {}
-#   parentRefs:
-#   - name: gateway
-#     sectionName: http.
-#   hostnames:
-#   - chart-example.local
-#   rules:
-#   - matches:
-#     - path:
-#         type: PathPrefix
-#         value: /headers
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+httpRoute:
+  enabled: false
+  annotations: {}
+  parentRefs:
+  - name: gateway
+    sectionName: http.
+  hostnames:
+  - chart-example.local
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /headers
 
-# livenessProbe:
-#   tcpSocket:
-#     port: 27017
-#   initialDelaySeconds: 30
-#   periodSeconds: 10
+livenessProbe:
+  tcpSocket:
+    port: 27017
+  initialDelaySeconds: 30
+  periodSeconds: 10
 
-# readinessProbe:
-#   tcpSocket:
-#     port: 27017
-#   initialDelaySeconds: 5
-#   periodSeconds: 10
+readinessProbe:
+  tcpSocket:
+    port: 27017
+  initialDelaySeconds: 5
+  periodSeconds: 10
 
-# autoscaling:
-#   enabled: false
+autoscaling:
+  enabled: false
 
-# volumes:
-#   - name: tmp-volume
-#     emptyDir: {}
+volumes:
+  - name: tmp-volume
+    emptyDir: {}
 
-# volumeMounts:
-#   - name: mongo-data
-#     mountPath: /data/db
-#   - name: tmp-volume
-#     mountPath: /tmp
+volumeMounts:
+  - name: mongo-data
+    mountPath: /data/db
+  - name: tmp-volume
+    mountPath: /tmp
 
-# volumeClaimTemplates: 
-# - metadata:
-#     name: mongo-data
-#   spec:
-#     accessModes: [ "ReadWriteOnce" ]
-#     resources:
-#       requests:
-#         storage: 10Gi
+volumeClaimTemplates: 
+- metadata:
+    name: mongo-data
+  spec:
+    accessModes: [ "ReadWriteOnce" ]
+    resources:
+      requests:
+        storage: 10Gi
 
-# nodeSelector: {}
+nodeSelector: {}
 
-# tolerations: []
+tolerations: []
 
-# affinity: {}
+affinity: {}
 
-# serviceAccount:
-#   create: false
-#   name: ""
-#   annotations: {}
+serviceAccount:
+  create: false
+  name: ""
+  annotations: {}
