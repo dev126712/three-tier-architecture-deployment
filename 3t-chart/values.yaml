@@ -1,7 +1,7 @@
 global:
   namespace: 3t-app
 
-frontend: {}
+frontend:
  replicaCount: 1
  image:
    repository: dev126712/dockerized-three-tier-app-frontend
@@ -27,7 +27,7 @@ frontend: {}
            backendService: three-tier-app-frontend-service
            backendPort: 80
 
-backend: {}
+backend:
  replicaCount: 1
  image:
    repository: dev126712/dockerized-three-tier-app-backend
@@ -39,7 +39,7 @@ backend: {}
  configData:
    DATABASE_URI: "mongodb://admin:pass@database-service.3t-app-dev.svc.cluster.local:27017/mydatabase?authSource=admin"
 
-database: {}
+database: 
  replicaCount: 1
  image:
    repository: dev126712/dockerized-three-tier-app-database
