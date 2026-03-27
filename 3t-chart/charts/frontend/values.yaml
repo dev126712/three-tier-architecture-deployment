@@ -5,7 +5,7 @@ frontend:
   replicaCount: 1
   image:
     repository: dev126712/dockerized-three-tier-app-frontend
-    tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
+    tag: "4dbf24891156fa946e9148ac9ad71b011f713658"
     pullPolicy: IfNotPresent
   service:
     annotations: {}
