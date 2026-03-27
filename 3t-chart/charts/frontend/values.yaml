@@ -1,5 +1,5 @@
 global:
-  namespace: 3t-app-dev
+  namespace: 3t-app
 
 frontend:
   replicaCount: 1
