@@ -2,120 +2,118 @@ global:
   namespace: 3t-app-dev
 
 frontend:
-
-  frontend:
-    replicaCount: 1
-    image:
-      repository: dev126712/dockerized-three-tier-app-frontend
-      tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
-      pullPolicy: IfNotPresent
-    service:
-      annotations: {}
-      type: NodePort
-      port: 80
-      targetPort: 8000
-    ingress:
-      className: "nginx"
-      annotations:
-        nginx.ingress.kubernetes.io/rewrite-target: /
-      hosts:
-        - host: dev.chart-example.local
-          paths:
-            - path: /api
-              pathType: Prefix
-              backendService: three-tier-app-backend-service 
-              backendPort: 8080
-            - path: /
-              pathType: Prefix
-              backendService: three-tier-app-frontend-service
-              backendPort: 80
-              
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 200m
-        memory: 256Mi
-    autoscaling:
-      enabled: false
+replicaCount: 1
+image:
+  repository: dev126712/dockerized-three-tier-app-frontend
+  tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
+  pullPolicy: IfNotPresent
+service:
+  annotations: {}
+  type: NodePort
+  port: 80
+  targetPort: 8000
+ingress:
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: dev.chart-example.local
+      paths:
+        - path: /api
+          pathType: Prefix
+          backendService: three-tier-app-backend-service 
+          backendPort: 8080
+        - path: /
+          pathType: Prefix
+          backendService: three-tier-app-frontend-service
+          backendPort: 80
+          
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+autoscaling:
+  enabled: false
 
 
 
 
-  podAnnotations: {}
-  podLabels: {}
+podAnnotations: {}
+podLabels: {}
 
-  podSecurityContext: {}
+podSecurityContext: {}
 
-  securityContext: 
-    capabilities:
-      drop:
-      - ALL
-    readOnlyRootFilesystem: true
-    runAsNonRoot: true
-    runAsUser: 1000
+securityContext: 
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
 
-  service:
-    annotations: {}  # This "empty map" tells Helm the key exists but has no data
-    type: NodePort
-    port: 80
-    targetPort: 8000
-    protocol: TCP
+service:
+  annotations: {}  # This "empty map" tells Helm the key exists but has no data
+  type: NodePort
+  port: 80
+  targetPort: 8000
+  protocol: TCP
 
-  #ingress:
-  #  className: "nginx"
-  #  annotations:
-  #    nginx.ingress.kubernetes.io/rewrite-target: /
-  #  hosts:
-  #    - host: chart-example.local
-  #      paths:
-  #        - path: /api
-  #          pathType: Prefix
-  #          backendService: backend-service
-  #          backendPort: 8080
-  #        - path: /
-  #          pathType: Prefix
-  #          backendService: frontend-service
-  #          backendPort: 80
-  #  tls: []
+#ingress:
+#  className: "nginx"
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /
+#  hosts:
+#    - host: chart-example.local
+#      paths:
+#        - path: /api
+#          pathType: Prefix
+#          backendService: backend-service
+#          backendPort: 8080
+#        - path: /
+#          pathType: Prefix
+#          backendService: frontend-service
+#          backendPort: 80
+#  tls: []
 
-  ingress:
-    className: "nginx"
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
-    hosts:
-      - host: dev.chart-example.local
-        paths:
-          - path: /api
-            pathType: Prefix
-            # FIX: This must match the full name of your backend service
-            backendService: three-tier-app-backend-service 
-            backendPort: 8080
-          - path: /
-            pathType: Prefix
-            # FIX: This must match the full name of your frontend service
-            backendService: three-tier-app-frontend-service
-            backendPort: 80
-
-
+ingress:
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: dev.chart-example.local
+      paths:
+        - path: /api
+          pathType: Prefix
+          # FIX: This must match the full name of your backend service
+          backendService: three-tier-app-backend-service 
+          backendPort: 8080
+        - path: /
+          pathType: Prefix
+          # FIX: This must match the full name of your frontend service
+          backendService: three-tier-app-frontend-service
+          backendPort: 80
 
 
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 50
-  volumes: []
-  volumeMounts: []
-  nodeSelector: {}
 
-  tolerations: []
 
-  affinity: {}
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 50
+volumes: []
+volumeMounts: []
+nodeSelector: {}
 
-  service:
-    type: NodePort
+tolerations: []
+
+affinity: {}
+
+service:
+  type: NodePort
 
 
 
@@ -189,36 +187,36 @@ backend:
 
 
 database:
-
+  
   replicaCount: 1
-
+  
   image:
     repository: dev126712/dockerized-three-tier-app-database
     pullPolicy: IfNotPresent
     tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
-
+  
   auth:
     rootUsername: "admin"
     rootPassword: "pass"
     database: "mydatabase"
-
-
+  
+  
   podAnnotations: {}
   podLabels: {}
-
+  
   podSecurityContext: {}
     # fsGroup: 2000
-
+  
   securityContext:
     readOnlyRootFilesystem: true # Keep this for security
     runAsNonRoot: true
     runAsUser: 1000
-
+  
   service:
     type: ClusterIP
     port: 27017
     targetPort: 27017
-
+  
   ingress:
     enabled: false
     className: ""
@@ -242,32 +240,32 @@ database:
       - path:
           type: PathPrefix
           value: /headers
-
+  
   livenessProbe:
     tcpSocket:
       port: 27017
     initialDelaySeconds: 30
     periodSeconds: 10
-
+  
   readinessProbe:
     tcpSocket:
       port: 27017
     initialDelaySeconds: 5
     periodSeconds: 10
-
+  
   autoscaling:
     enabled: false
-
+  
   volumes:
     - name: tmp-volume
       emptyDir: {}
-
+  
   volumeMounts:
     - name: mongo-data
       mountPath: /data/db
     - name: tmp-volume
       mountPath: /tmp
-
+  
   volumeClaimTemplates: 
   - metadata:
       name: mongo-data
@@ -276,17 +274,17 @@ database:
       resources:
         requests:
           storage: 10Gi
-
+  
   nodeSelector: {}
-
+  
   tolerations: []
-
+  
   affinity: {}
-
+  
   serviceAccount:
     create: false
     name: ""
     annotations: {}
-
+  
   service:
     type: ClusterIP
