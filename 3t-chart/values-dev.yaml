@@ -1,6 +1,4 @@
-# 3t-chart/values-dev.yaml
-global:
-  namespace: 3t-app-dev
+namespace: 3t-app-dev
 
 frontend:
   global:
