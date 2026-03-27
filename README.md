@@ -13,7 +13,9 @@ Structure:
 │   │   │   │   ├── _helpers.tpl
 │   │   │   │   ├── hpa.yaml
 │   │   │   │   └── service.yaml
-│   │   │   └── values.yaml
+│   │   │   ├── values-dev.yaml
+│   │   │   ├── values-prod.yml
+│   │   │   └── values-stage.yml
 │   │   ├── database
 │   │   │   ├── Chart.yaml
 │   │   │   ├── templates
@@ -21,7 +23,9 @@ Structure:
 │   │   │   │   ├── _helpers.tpl
 │   │   │   │   ├── hpa.yaml
 │   │   │   │   └── service.yaml
-│   │   │   └── values.yaml
+│   │   │   ├── values-dev.yaml
+│   │   │   ├── values-prod.yml
+│   │   │   └── values-stage.yml
 │   │   └── frontend
 │   │       ├── Chart.yaml
 │   │       ├── templates
@@ -30,12 +34,15 @@ Structure:
 │   │       │   ├── hpa.yaml
 │   │       │   ├── ingress.yaml
 │   │       │   └── service.yaml
-│   │       └── values.yaml
+│   │       ├── values-dev.yaml
+│   │       ├── values-prod.yml
+│   │       └── values-stage.yml
 │   ├── Chart.yaml
 │   └── values.yaml
 ├── argocd
 │   ├── application.yml
 │   └── monitoring-app.yml
+├── argocd-installation.bash
 ├── monitoring-chart
 │   ├── charts
 │   │   ├── grafana
@@ -59,6 +66,7 @@ Structure:
 │   ├── templates
 │   │   └── namespace.yml
 │   └── values.yaml
+├── README.md
 └── values.yaml
 ````
 
