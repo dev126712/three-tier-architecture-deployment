@@ -11,11 +11,11 @@ spec:
       maxUnavailable: 1
   selector:
     matchLabels:
-      app: frontend
+      {{- include "frontend.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: frontend
+        {{- include "frontend.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - name: frontend
