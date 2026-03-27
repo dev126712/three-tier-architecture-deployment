@@ -1,6 +1,6 @@
 global:
   namespace: 3t-app
 
-frontend: {}
-backend: {}
-database: {}
+charts/frontend: {}
+charts/backend: {}
+charts/database: {}
