@@ -1,12 +1,6 @@
-# Default values for the umbrella chart
 global:
-  namespace: default
+  namespace: 3t-app
 
-frontend:
-  enabled: true
-
-backend:
-  enabled: true
-
-database:
-  enabled: true
+frontend: {}
+backend: {}
+database: {}
