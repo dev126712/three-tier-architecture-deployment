@@ -2,8 +2,6 @@ global:
   namespace: 3t-app-dev
 
 frontend:
-  global:
-  namespace: 3t-app-dev
 
   frontend:
     replicaCount: 1
@@ -129,8 +127,6 @@ frontend:
 
 
 backend:
-  global:
-  namespace: 3t-app-dev
 
   replicaCount: 1
 
@@ -193,8 +189,6 @@ backend:
 
 
 database:
-  global:
-  namespace: 3t-app-dev
 
   replicaCount: 1
 
