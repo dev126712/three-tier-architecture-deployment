@@ -68,7 +68,7 @@ Structure:
 └── values.yaml
 ````
 
-Multiple Environment with their own argocd manifest files
+Multiple Environment with their own argocd manifest files & confugaration files throught helm
 - Dev
 - Stage
 - Prod
