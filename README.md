@@ -1,5 +1,12 @@
 # three-tier-architecture-deployment
 
+Multiple Environment with their own argocd manifest files & configaration files throught helm
+- Dev
+- Stage
+- Prod
+
+![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/d7e66d42de555afd4ca44caadb747e672ae9e853/image.png)
+
 Structure:
 ````
 .
@@ -68,10 +75,4 @@ Structure:
 └── values.yaml
 ````
 
-Multiple Environment with their own argocd manifest files & configaration files throught helm
-- Dev
-- Stage
-- Prod
-
-![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/d7e66d42de555afd4ca44caadb747e672ae9e853/image.png)
 
