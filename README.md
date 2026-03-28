@@ -5,6 +5,10 @@ Multiple Environment with their own argocd manifest files & configaration files 
 - Stage
 - Prod
 
+Monotoring
+- Grafana
+- Node-Exporter
+- VictoriaMetrics
 ![alt text](https://github.com/dev126712/three-tier-architecture-deployment/blob/d7e66d42de555afd4ca44caadb747e672ae9e853/image.png)
 
 Structure:
