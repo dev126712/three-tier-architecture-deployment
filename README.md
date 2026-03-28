@@ -1,6 +1,6 @@
 # three-tier-architecture-deployment
 
-Multiple Environment with their own argocd manifest files & configaration files throught helm
+Multiple Environment with their own argocd manifest files & configuration files throught helm
 - Dev
 - Stage
 - Prod
