@@ -1,6 +1,5 @@
 global:
   namespace: 3t-app-dev
-
 frontend:
   replicaCount: 1
   image:
@@ -16,30 +15,28 @@ frontend:
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /
     hosts:
-    - host: dev.chart-example.local
-      paths:
-        - path: /api
-          pathType: Prefix
-          backendService: three-tier-app-dev-backend-service 
-          backendPort: 8080
-        - path: /
-          pathType: Prefix
-          backendService: three-tier-app-dev-frontend-service
-          backendPort: 80
-
+      - host: dev.chart-example.local
+        paths:
+          - path: /api
+            pathType: Prefix
+            backendService: three-tier-app-dev-backend-service
+            backendPort: 8080
+          - path: /
+            pathType: Prefix
+            backendService: three-tier-app-dev-frontend-service
+            backendPort: 80
 backend:
   replicaCount: 1
   image:
     repository: dev126712/dockerized-three-tier-app-backend
-    tag: "801b80920334515356715c23caaf57bdd11779f8"
+    tag: "60a242833969a14963f510030fcd688a6013521b"
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
-    port: 8080 
+    port: 8080
   configData:
     DATABASE_URI: "mongodb://admin:pass@database-service.3t-app-dev.svc.cluster.local:27017/mydatabase?authSource=admin"
-
-database: 
+database:
   replicaCount: 1
   image:
     repository: dev126712/dockerized-three-tier-app-database
