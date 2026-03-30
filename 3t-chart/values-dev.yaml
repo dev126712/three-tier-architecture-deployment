@@ -32,7 +32,7 @@ backend:
     tag: "60a242833969a14963f510030fcd688a6013521b"
     pullPolicy: IfNotPresent
   service:
-    type: ClusterIP
+    type: NodePort
     port: 8080
   configData:
     DATABASE_URI: "mongodb://admin:pass@database-service.3t-app-dev.svc.cluster.local:27017/mydatabase?authSource=admin&directConnection=true"
