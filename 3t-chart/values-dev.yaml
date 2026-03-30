@@ -47,5 +47,5 @@ database:
     rootPassword: "pass"
     database: "mydatabase"
   service:
-    type: ClusterIP
+    type: NodePort
     port: 27017
