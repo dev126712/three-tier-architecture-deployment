@@ -4,7 +4,7 @@ frontend:
   replicaCount: 1
   image:
     repository: dev126712/dockerized-three-tier-app-frontend
-    tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
+    tag: "38eab0cce0dab91ea47d300e5db66a085b44c469"
     pullPolicy: IfNotPresent
   service:
     type: NodePort
@@ -36,7 +36,6 @@ backend:
     port: 8080
   configData:
     DATABASE_URI: "mongodb://admin:pass@database-service:27017/mydatabase?authSource=admin"
-
 database:
   replicaCount: 1
   image:
