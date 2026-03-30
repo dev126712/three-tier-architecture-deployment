@@ -6,7 +6,8 @@ replicaCount: 1
 #Mapped from your Service manifest
 service:
   type: ClusterIP
-  port: 8080 
+  port: 8080
+  targetPort: 8080
 
 #Mapped from your Deployment resources
 resources:
