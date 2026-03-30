@@ -15,10 +15,10 @@ frontend:
     hosts:
       - host: dev.chart-example.local
         paths:
-          - path: /api
-            pathType: Prefix
-            backendService: three-tier-app-backend-service 
-            backendPort: 8080
+          # - path: /api
+          #   pathType: Prefix
+          #   backendService: three-tier-app-backend-service 
+          #   backendPort: 8080
           - path: /
             pathType: Prefix
             backendService: three-tier-app-frontend-service
