@@ -36,6 +36,7 @@ backend:
     port: 8080
   configData:
     DATABASE_URI: "mongodb://admin:pass@database-service.3t-app-dev.svc.cluster.local:27017/mydatabase?authSource=admin&directConnection=true"
+
 database:
   replicaCount: 1
   image:
@@ -47,5 +48,5 @@ database:
     rootPassword: "pass"
     database: "mydatabase"
   service:
-    type: NodePort
+    type: ClusterIP
     port: 27017
