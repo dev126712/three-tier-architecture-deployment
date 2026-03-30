@@ -3,10 +3,6 @@ global:
 
 frontend:
   replicaCount: 1
-  image:
-    repository: dev126712/dockerized-three-tier-app-frontend
-    tag: "4dbf24891156fa946e9148ac9ad71b011f713658"
-    pullPolicy: IfNotPresent
   service:
     annotations: {}
     type: NodePort
