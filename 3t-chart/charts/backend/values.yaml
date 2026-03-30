@@ -3,11 +3,6 @@ global:
 
 replicaCount: 1
 
-image:
-  repository: dev126712/dockerized-three-tier-app-backend
-  pullPolicy: IfNotPresent
-  tag: "4dbf24891156fa946e9148ac9ad71b011f713658"
-
 #Mapped from your Service manifest
 service:
   type: ClusterIP
