@@ -1,7 +1,7 @@
 global:
   namespace: 3t-app-dev
 frontend:
-  replicaCount: 3
+  replicaCount: 1
   image:
     repository: dev126712/dockerized-three-tier-app-frontend
     tag: "38eab0cce0dab91ea47d300e5db66a085b44c469"
