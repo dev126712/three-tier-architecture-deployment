@@ -1,15 +1,20 @@
 global:
   namespace: 3t-app-dev
+
+  
 frontend:
   replicaCount: 1
+
   image:
     repository: dev126712/dockerized-three-tier-app-frontend
     tag: "38eab0cce0dab91ea47d300e5db66a085b44c469"
     pullPolicy: IfNotPresent
+  
   service:
     type: NodePort
     port: 80
     targetPort: 8000
+  
   ingress:
     className: "nginx"
     annotations:
@@ -25,28 +30,38 @@ frontend:
             pathType: Prefix
             backendService: three-tier-app-dev-frontend-service
             backendPort: 80
+
+
 backend:
   replicaCount: 1
+ 
   image:
     repository: dev126712/dockerized-three-tier-app-backend
     tag: "60a242833969a14963f510030fcd688a6013521b"
     pullPolicy: IfNotPresent
+  
   service:
     type: NodePort
     port: 8080
     targetPort: 8080
+  
   configData:
     DATABASE_URI: "mongodb://admin:pass@database-service:27017/mydatabase?authSource=admin"
+
+
 database:
   replicaCount: 1
+  
   image:
     repository: dev126712/dockerized-three-tier-app-database
     tag: "d85e9675297521ee1646fcec0b553d0e2ec7f6b8"
     pullPolicy: IfNotPresent
+  
   auth:
     rootUsername: "admin"
     rootPassword: "pass"
     database: "mydatabase"
+  
   service:
     type: ClusterIP
     port: 27017
