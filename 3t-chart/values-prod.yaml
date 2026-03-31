@@ -33,7 +33,7 @@ frontend:
 
 
 backend:
-  replicaCount: 1
+  replicaCount: 3
 
   image:
     repository: dev126712/dockerized-three-tier-app-backend
@@ -49,7 +49,7 @@ backend:
 
 
 database: 
-  replicaCount: 1
+  replicaCount: 3
 
   image:
     repository: dev126712/dockerized-three-tier-app-database
