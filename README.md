@@ -2,6 +2,75 @@
 
 This repository provides a complete Kubernetes deployment setup for a three-tier web application (Frontend, Backend, Database) using Helm charts and ArgoCD for GitOps-based continuous deployment. It supports multiple environments (Dev, Stage, Prod) and includes a monitoring stack with VictoriaMetrics, Grafana, and Node Exporter.
 
+````
+.
+├── 3t-chart
+│   ├── charts
+│   │   ├── backend
+│   │   │   ├── Chart.yaml
+│   │   │   ├── templates
+│   │   │   │   ├── configmap.yaml
+│   │   │   │   ├── deployment.yaml
+│   │   │   │   ├── _helpers.tpl
+│   │   │   │   ├── hpa.yaml
+│   │   │   │   └── service.yaml
+│   │   │   └── values.yaml
+│   │   ├── database
+│   │   │   ├── Chart.yaml
+│   │   │   ├── templates
+│   │   │   │   ├── deployment.yaml
+│   │   │   │   ├── _helpers.tpl
+│   │   │   │   ├── hpa.yaml
+│   │   │   │   └── service.yaml
+│   │   │   └── values.yaml
+│   │   └── frontend
+│   │       ├── Chart.yaml
+│   │       ├── templates
+│   │       │   ├── deployment.yaml
+│   │       │   ├── _helpers.tpl
+│   │       │   ├── hpa.yaml
+│   │       │   ├── ingress.yaml
+│   │       │   └── service.yaml
+│   │       └── values.yaml
+│   ├── Chart.yaml
+│   ├── values-dev.yaml
+│   ├── values-prod.yaml
+│   └── values-stage.yaml
+├── argocd
+│   ├── application-dev.yml
+│   ├── application-prod.yml
+│   ├── application-stage.yml
+│   └── monitoring-app.yml
+├── argocd-installation.bash
+├── image.png
+├── monitoring-chart
+│   ├── charts
+│   │   ├── grafana
+│   │   │   ├── Chart.yaml
+│   │   │   ├── templates
+│   │   │   │   └── grafana.yaml
+│   │   │   └── values.yaml
+│   │   ├── node-exporter
+│   │   │   ├── Chart.yaml
+│   │   │   ├── templates
+│   │   │   │   └── node-exporter.yaml
+│   │   │   └── values.yaml
+│   │   └── victoria-metrics
+│   │       ├── Chart.yaml
+│   │       ├── templates
+│   │       │   ├── victoriametrics.yaml
+│   │       │   ├── vm-config.yaml
+│   │       │   └── vm-rbac.yaml
+│   │       └── values.yaml
+│   ├── Chart.yaml
+│   ├── templates
+│   │   └── namespace.yml
+│   └── values.yaml
+├── README.md
+└── values.yaml
+
+````
+
 ## Architecture
 
 The application consists of three main components:
