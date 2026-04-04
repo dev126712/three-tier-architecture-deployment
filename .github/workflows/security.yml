@@ -1,0 +1,28 @@
+name: K8s security scan
+on:
+  push: 
+    branches: [ main ]
+    paths-ignore: 
+      - '!**.md'
+    
+jobs:
+  security-scan-manifest-files:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    steps:
+    
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy (Table output for console)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          scan-ref: '.'
+          format: 'table'
+          exit-code: '0'
+          severity: 'HIGH,CRITICAL'
+    
