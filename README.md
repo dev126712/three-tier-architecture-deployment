@@ -42,7 +42,6 @@ This repository provides a complete Kubernetes deployment setup for a three-tier
 │   ├── application-stage.yml
 │   └── monitoring-app.yml
 ├── argocd-installation.bash
-├── image.png
 ├── monitoring-chart
 │   ├── charts
 │   │   ├── grafana
@@ -66,7 +65,6 @@ This repository provides a complete Kubernetes deployment setup for a three-tier
 │   ├── templates
 │   │   └── namespace.yml
 │   └── values.yaml
-├── README.md
 └── values.yaml
 
 ````
