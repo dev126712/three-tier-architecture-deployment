@@ -9,6 +9,11 @@ service:
   port: 8080
   targetPort: 8080
 
+image:
+  repository: dev126712/dockerized-three-tier-app-backend
+  tag: "60a242833969a14963f510030fcd688a6013521b"
+  pullPolicy: IfNotPresent
+
 #Mapped from your Deployment resources
 resources:
  requests:
