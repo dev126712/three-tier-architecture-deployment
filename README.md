@@ -1,4 +1,4 @@
-# Three-Tier Architecture Deployment
+# Three-Tier Architecture Deployment ( Helm Charts )
 
 This repository provides a complete Kubernetes deployment setup for a three-tier web application (Frontend, Backend, Database) using Helm charts and ArgoCD for GitOps-based continuous deployment. It supports multiple environments (Dev, Stage, Prod) and includes a monitoring stack with VictoriaMetrics, Grafana, and Node Exporter.
 
