@@ -24,3 +24,9 @@ fi
 echo 'http port:' ` kubectl get svc -n argocd -o jsonpath="{.items[6].spec.ports[0].nodePort}"`
 
 echo 'https port:' ` kubectl get svc -n argocd -o jsonpath="{.items[6].spec.ports[1].nodePort}"`
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+helm install my-ingress ingress-nginx/ingress-nginx \
+  --namespace ingress-nginx --create-namespace
