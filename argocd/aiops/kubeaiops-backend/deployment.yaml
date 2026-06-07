@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeaiops-backend
+  namespace: aiops
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubeaiops-backend
+  template:
+    metadata:
+      labels:
+        app: kubeaiops-backend
+    spec:
+      containers:
+        - name: kubeaiops-backend
+          image: placeholder:latest
